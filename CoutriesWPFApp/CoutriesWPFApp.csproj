@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="add.png" />
+    <None Remove="icons8-search-50.png" />
+    <None Remove="papers_icon-icons.com_72407 %281%29.png" />
+    <None Remove="Search.png" />
+    <None Remove="showAll.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\add.png" />
+    <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\showAll.png" />
+  </ItemGroup>
+
+</Project>
