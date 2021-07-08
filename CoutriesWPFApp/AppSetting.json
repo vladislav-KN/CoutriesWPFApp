@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "Countries": "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\SAVS\\source\\repos\\CoutriesWPFApp\\CoutriesWPFApp\\DataBase\\Countries.mdf;Integrated Security=True"
+  }
+}

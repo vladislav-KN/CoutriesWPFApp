@@ -6,7 +6,8 @@ using System.Text;
 
 namespace CoutriesWPFApp.Models
 {
-    class Country
+    
+    public class Country 
     {
         [Key]
         public int Id { get; set; }
@@ -15,9 +16,11 @@ namespace CoutriesWPFApp.Models
         public int CapitalID { get; set; }
         [ForeignKey("CapitalID")]
         public City City { get; set; }
-        public float Squere { get; set; }
+        public double Squere { get; set; }
+        public int Population { get; set; }
         public int RegionID { get; set; }
         [ForeignKey("RegionID")]
         public Region Region { get; set; }
+        
     }
 }

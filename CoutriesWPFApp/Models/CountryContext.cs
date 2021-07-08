@@ -10,5 +10,7 @@ namespace CoutriesWPFApp.Models
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Region> Regions { get; set; }
+        public CountryContext(string connectionString)
+        : base(connectionString){}
     }
 }

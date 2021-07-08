@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="add.png" />
+    <None Remove="AppSetting.json" />
     <None Remove="icons8-search-50.png" />
     <None Remove="papers_icon-icons.com_72407 %281%29.png" />
     <None Remove="Search.png" />
@@ -15,7 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="AppSetting.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
