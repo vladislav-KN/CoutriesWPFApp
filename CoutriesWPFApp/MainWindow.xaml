@@ -1,54 +1,90 @@
-﻿<Window x:Class="CoutriesWPFApp.MainWindow"
+﻿<Window x:Name="___No_Name_" x:Class="CoutriesWPFApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoutriesWPFApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Страны" Height="500" Width="800" MinWidth="800" MinHeight="494">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="390*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Search" HorizontalAlignment="Left" Margin="241,0,0,0" VerticalAlignment="Center" FontSize="14" Height="30" Width="30" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Column="1">
+        <Button x:Name="Search" HorizontalAlignment="Left" Margin="240,0,0,10" FontSize="14" Width="30" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Column="1" Click="Search_Click" Height="30" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/search.png"/>
             </Button.Background>
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/Assets/search.png"/>
             </Button.OpacityMask>
-
-
+            <Button.ToolTip>
+                <ToolTip>
+                    Поиск
+                </ToolTip>
+            </Button.ToolTip>
         </Button>
-        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="6,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" Height="30" FontSize="20" Grid.Column="1"/>
-        <DataGrid Margin="0,45,0,0" Grid.RowSpan="2" Grid.Column="1"/>
-        <Button x:Name="ShowAll" Margin="10,10,10,0" VerticalAlignment="Top" FontSize="14" Height="30" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Row="1">
+        <TextBox x:Name="SearchBox" Margin="5,0,0,10" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="30" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" Width="230"/>
+        <DataGrid x:Name="ShowDataGrid" IsReadOnly="True" ItemsSource="{Binding Path=Country}" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=CountryName}"/>
+                <DataGridTextColumn Header="Код страны" Binding="{Binding Path=CountryID}"/>
+                <DataGridTextColumn Header="Столица" Binding="{Binding Path=City.CityName}"/>
+                <DataGridTextColumn Header="Площадь" Binding="{Binding Path=Squere}"/>
+                <DataGridTextColumn Header="Население" Binding="{Binding Path=Population}"/>
+                <DataGridTextColumn Header="Регион" Binding="{Binding Path=Region.RegionName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ShowAll" Margin="10,10,10,0" FontSize="14" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Row="1" Click="ShowAll_Click" Height="30" VerticalAlignment="Top">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/Assets/ShowAll.png"/>
             </Button.OpacityMask>
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/showAll.png"/>
             </Button.Background>
-
+            <Button.ToolTip>
+                <ToolTip>
+                    Вывести все данные.
+                </ToolTip>
+            </Button.ToolTip>
 
 
         </Button>
-        <Button x:Name="Add" Margin="276,0,0,0" FontSize="14" Height="30" Width="30" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Column="1" HorizontalAlignment="Left" Click="Add_Click" >
+        <Button x:Name="Add" Margin="275,0,0,10" FontSize="14" Width="30" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Grid.Column="1" HorizontalAlignment="Left" Click="Add_Click" Height="30" VerticalAlignment="Bottom" >
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/Assets/Add.png"/>
             </Button.OpacityMask>
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Add.png"/>
             </Button.Background>
-
+            <Button.ToolTip>
+                <ToolTip>
+                    Добавить данные в базу.
+                </ToolTip>
+            </Button.ToolTip>
 
         </Button>
+        <Button x:Name="ChangeConStr" Margin="0,0,10,10" FontSize="14" BorderBrush="{x:Null}" RenderTransformOrigin="-0.082,0.838" Click="ChangeConStr_Click" Grid.Column="1" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="30">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/Assets/Save.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/Save.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    Сохранить строку.
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <TextBox x:Name="ConStr" Margin="315,0,50,10" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="30" FontSize="20" Grid.Column="1"/>
+        <TextBlock Grid.Column="1" Margin="5,10,0,0" Text="Поиск" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" HorizontalAlignment="Left" Width="38"/>
+        <TextBlock Grid.Column="1" Margin="315,12,0,0" Text="Строка подключения" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" HorizontalAlignment="Left" Width="120"/>
 
     </Grid>
 

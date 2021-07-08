@@ -11,7 +11,9 @@
     <None Remove="AppSetting.json" />
     <None Remove="icons8-search-50.png" />
     <None Remove="papers_icon-icons.com_72407 %281%29.png" />
+    <None Remove="Save.png" />
     <None Remove="Search.png" />
+    <None Remove="settings.png" />
     <None Remove="showAll.png" />
   </ItemGroup>
 
@@ -34,6 +36,8 @@
     <Resource Include="Assets\add.png" />
     <Resource Include="Assets\search.png" />
     <Resource Include="Assets\showAll.png" />
+    <Resource Include="Assets\settings.png" />
+    <Resource Include="Assets\Save.png" />
   </ItemGroup>
 
 </Project>
